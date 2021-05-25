@@ -4,6 +4,11 @@ CREATE USER jsp IDENTIFIED BY 1234;
 GRANT DBA TO jsp;
 
 --etc
-conn jsp/1234;
-select * from tabs;
+CONN jsp/1234;
+SELECT * FROM tabs;
+CREATE TABLE test (
+  COL1 NUMBER PRIMARY KEY,
+  COL2 VARCHAR2(10)
+);
+INSERT INTO test VALUES(4,'hh');
 
