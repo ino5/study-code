@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="parentText" value="부모창의값" />
+    <input type="text" id="receiveFromChild" value="" />
+    <button type="button" onclick="javascript:openChildWindow();">자식창열기</button>
+    <script type="text/javascript">
+        // 자식창 window 객체를 저장할 변수
+        var windowObj;
+        function openChildWindow() {
+
+            var settings = 'toolbar=0,directories=0,status=no,menubar=0,scrollbars=auto,resizable=no,height=200,width=200,left=0,top=0';
+            windowObj = window.open("temp2.html", "자식창", settings);
+
+            windowObj.onload = () => windowObj.document.getElementById("childText").value = document.getElementById('parentText').value;
+        
+            // windowObj.document.getElementById("childText").value = document.getElementById('parentText').value;
+            // 자식창의 childText라는 id를 가진 태그 요소의 값에 부모창의 값을 넣음
+
+        }
+       
+        function myPrint() {
+            console.log("hi");
+        }
+    </script>
+</body>
+
+</html>

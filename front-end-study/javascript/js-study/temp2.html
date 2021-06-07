@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        setCookie("Ck_01", "on", "1") //변수, 변수값, 저장기간
+
+        var checkEvent = getCookie("Ck_01");
+
+        //checkEvent 라는 변수를 만들어 브라우져 쿠키 "Ck_01" 값을 가져 옵니다.
+
+
+
+        if (checkEvent != "") {
+
+           console.log(checkEvent)
+
+        } else {
+
+            //쿠키값이 없을 경우
+
+        }
+
+
+        // 쿠키 생성 함수
+        function setCookie(cName, cValue, cDay) {
+            var expire = new Date();
+            expire.setDate(expire.getDate() + cDay);
+            cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+            if (typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+            document.cookie = cookies;
+        }
+
+
+
+        // 쿠키 가져오기 함수
+        function getCookie(cName) {
+            cName = cName + '=';
+            var cookieData = document.cookie;
+            var start = cookieData.indexOf(cName);
+            var cValue = '';
+            if (start != -1) {
+                start += cName.length;
+                var end = cookieData.indexOf(';', start);
+                if (end == -1) end = cookieData.length;
+                cValue = cookieData.substring(start, end);
+            }
+            return unescape(cValue);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

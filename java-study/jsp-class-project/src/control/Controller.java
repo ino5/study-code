@@ -104,7 +104,6 @@ public class Controller extends HttpServlet {
 	    } 
 	    RequestDispatcher dispatcher =   request.getRequestDispatcher(view);
         dispatcher.forward(request, response);
-		
 	}
 
 }
