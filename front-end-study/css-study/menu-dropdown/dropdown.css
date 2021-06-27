@@ -10,7 +10,7 @@
 }
 
 #sub-menu {
-    position: absolute;
+    /* position: absolute; */
     opacity: 0;
     visibility: hidden;
 }
