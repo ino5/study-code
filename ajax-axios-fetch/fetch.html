@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- GET -->
+    <script>
+        function funcGet() {
+            fetch("https://reqres.in/api/users/2", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data.email);
+                    let div = document.getElementById("get_result");
+                    div.innerHTML = JSON.stringify(res);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    </script>
+    <h3>get_result</h3>
+    <div id="get_result">
+
+    </div>
+    <button type="button" onclick="funcGet();">get</button>
+
+
+    <!-- POST -->
+    <script>
+        function funcPost() {
+            fetch("https://reqres.in/api/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: document.getElementById("post_name").value,
+                    job: "leader"
+                })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res);
+                    console.log(res.id);
+                    let div = document.getElementById("post_result");
+                    div.innerHTML = JSON.stringify(res);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    </script>
+    <h3>post_result</h3>
+    <div id="post_result">
+
+    </div>
+    name: <input type="text" id="post_name" name="name"><br>
+    <button type="button" onclick="funcPost();">post</button>
+</body>
+</html>
